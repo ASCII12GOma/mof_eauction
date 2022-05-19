@@ -734,8 +734,8 @@ export class AuctionDetailComponent implements OnInit {
           this.auctionCreateResp.emit(auctionCreateResp);
           // fileNet Services
           if (this.auctionAttachement['controls'].length > 0) {
-            this.auctionAttachmentsUploads(submitSrc, auctionCreateResp);
-            // this.auctionAttachmentsUploadsTest();
+            // this.auctionAttachmentsUploads(submitSrc, auctionCreateResp); //---> Timer Logic
+            this.auctionAttachmentsUploadsTest(); //---> promise logic
           } else {
             this.showSaveBtnLoader = false;
             this.activeStep++;
@@ -898,9 +898,11 @@ export class AuctionDetailComponent implements OnInit {
         this.makeAPICall(fileNetAuctionDetail)
       );
     });
+    // await for promise happens
     await (Promise as any).allSettled(promises).then(
       (results: any) => results.forEach(
         (result :any) => {
+          // Should be executed once after all promises satisfys 
           console.log('Status', result.status);
           this.showSaveBtnLoader = false;
           this.activeStep++;
