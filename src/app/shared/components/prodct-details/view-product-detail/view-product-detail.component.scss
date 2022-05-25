@@ -113,8 +113,13 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.icon-spinner{
-  width: 18px;
-  height: 18px;
-  font-size: x-small;
+
+.icon-spinner {
+    width: 18px;
+    height: 18px;
+    font-size: x-small;
+}
+
+.flex-view {
+    display: flex;
 }
